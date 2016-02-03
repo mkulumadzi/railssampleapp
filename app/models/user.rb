@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   # Returns true if the given token matches the digest
   # Note: remember_token is a variable local to this method, not the corresponding user attribute
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
