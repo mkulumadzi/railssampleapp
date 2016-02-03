@@ -3,6 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <!--  Rails checks @user and renders an edit page if user already exists... -->
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= render 'layouts/user_form', locals: {f: f } %>
@@ -11,6 +12,7 @@
 
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
+      <!--Note: target="_blank" opens in new tab  -->
       <a href="http://gravatar.com/emails" target="_blank">change</a>
     </div>
   </div>
