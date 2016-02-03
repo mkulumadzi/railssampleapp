@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       # Handle a successful update
     else
-      render 'new'
+      render 'edit'
     end
   end
 
