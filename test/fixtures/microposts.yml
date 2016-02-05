@@ -24,3 +24,23 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: evan
 <% end %>
+
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: kristen
+
+zone:
+  content: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: kristen
+
+tone:
+  content: "I'msorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 10.minutes.ago %>
+  user: neal
+
+van:
+  content: "Dude, this van's, like, rolling probable cause."
+  created_at: <%= 4.hours.ago %>
+  user: neal
