@@ -66,6 +66,13 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  # Defines a proto-feed.
+  # See "Folowing users" for the full implementation
+  def feed
+    # we could just enter 'microposts' but we're doing this because it will genralize to the follow feed later
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
     # Converst email to all lower-case
