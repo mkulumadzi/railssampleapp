@@ -73,7 +73,9 @@ class User < ActiveRecord::Base
   # Returns a users' status feed
   def feed
     # Active Record has a convenience method that maps object ids from an array of those objects into an array of just those ids
-    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
+    # Doing a subselect, arranging for all of the set logic to be pushed into the database, which is more efficient.
+    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
   end
 
   # Follow a user.
